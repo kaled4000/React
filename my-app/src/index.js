@@ -1,8 +1,12 @@
 import  React  from "react";
 import  ReactDOM  from "react-dom";
 
+import Heading from "./Heading";
+import List from "./List";
 
-ReactDOM.render(<div>
-<h1>Hello world !</h1>
+ReactDOM.render(
+<div>
+   <Heading />
+   <List/> 
 </div>
 ,document.getElementById("root"));
