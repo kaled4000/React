@@ -5,6 +5,7 @@ function Card(props) {
   return (
     <div className="card">
       <div className="top">
+      <p>This is an {props.Id}</p>
         <h2 className="name">{props.name}</h2>
         <King img={props.img} />
       </div>
