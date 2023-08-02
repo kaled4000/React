@@ -21,4 +21,5 @@ const emojipedia = [
         "This is funny! A smiley face, rolling on the floor, laughing. The face is laughing boundlessly. The emoji version of “rofl“. Stands for „rolling on the floor, laughing“."
     }
   ];
-  
+//console.log(emojipedia);
+export default emojipedia;
