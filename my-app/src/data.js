@@ -1,12 +1,12 @@
 const animals = [
     { 
     name: "cat", 
-    sound: "meow",
-    model: [herbivores, omnivores, carnivores] },
+    sound: "meow"
+    }
     { 
     name: "dog", 
     sound: "woof" 
-}
+    }
   ];
   
   export default animals;
