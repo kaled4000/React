@@ -1,12 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./componet/App";
 
-var count = 0;
 
-ReactDOM.render(
-  <div className="container">
-    <h1>{count}</h1>
-    <button>+</button>
-  </div>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />,document.getElementById("root"));
+
