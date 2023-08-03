@@ -1,29 +1,21 @@
-import React ,{useState} from "react";
-//import ReactDOM  from "react-dom";
+import React ,{useState}from "react";
+//import ReactDOM  from "react";
+function App(){
 
-function App() {
-  //var count = 0;
-  
-  const [count,setCount]= useState(0);
-
-  //console.log(count);
-  // RGB_color
-  // const [red,green,blue] = [9,132,227];
-  // console.log(blue);
-
-  function Increse(){
-    //count++;
-    setCount(count + 1)
-  }      
-  function Reduce(){
-    setCount(count - 1)
+  const [count, setCount] = useState[0];
+  function Up(){
+    return setCount(count + 1);
   }
-    return <div className="container">
+  function Down (){
+    return setCount (count - 1);
+  }
+    return( <div className="container">
   <h1>{count}</h1>
-  <button onClick={Reduce}>-</button>
-  <button onClick={Increse}>+</button>
+  <button onClick={Up}>-</button>
+  <button onClick={Down}>+</button>
 
 </div>
+    );
  
 }
 
