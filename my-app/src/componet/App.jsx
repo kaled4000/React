@@ -5,7 +5,6 @@ function App() {
 
   const [fname,SetNname] =useState("");
   const [lname,SetLname] =useState("");
-  const [lname_2,SetLname_2]=useState(lname);
 
   function handlechange(e){
     SetNname(e.target.value)
@@ -13,19 +12,19 @@ function App() {
   function handl(e){
     SetLname(e.target.value)
   }
-  function HandleSubmit(event){
-   SetLname_2(lname)
-   event.preventDefault();
-  }
-
+  
  
   return (
     <div className="container">
-      <h1>Hello {fname} {lname_2}</h1>
+      <h1>Hello {fname}{lname}</h1>
       <form>
-        <input name="fName" onChange={handlechange} placeholder="First Name" />
-        <input name="lName" onChange={handl} placeholder="Last Name" />
-        <button onClick={HandleSubmit}  >Submit</button>
+        <input name="fName" onChange={handlechange} placeholder="First Name"
+        // for sure the only thing will change in our varable
+         value={fname}   />
+        <input name="lName" onChange={handl} placeholder="Last Name" 
+        value={lname}
+        />
+        <button>Submit</button>
       </form>
     </div>
   );
