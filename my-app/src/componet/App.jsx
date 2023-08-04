@@ -9,19 +9,23 @@ function App() {
   });
 
   function handlechange(e){
-   const newvalue = e.target.value;
-   const inputName = e.target.name;
    
-   SetFullname((pervValue) => {
-    if (inputName === "fName"){
+   
+    const {value,name} = e.target;
+  
+    SetFullname((pervValue) => {
+      // never acces to event from here for more information why
+      // go React wesite and search about 
+      // SyntheticEvent 
+    if (name === "fName"){
       return {
-        fName:newvalue,
+        fName:value,
         lName:pervValue.lName
       };
-    }else if(inputName === "lName"){
+    }else if(name === "lName"){
       return{
         fName:pervValue.fName,
-        lName:newvalue
+        lName:value
       }
     }
    })
