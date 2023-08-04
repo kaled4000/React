@@ -7,16 +7,46 @@ function App() {
     email: ""
   });
 
+  function HandleChange(event){
+       const {name,value} = event.target
+       //console.log(newvalue + inputName)
+      
+       setContact((prev)=> {
+         if (name === "fName") {
+          return {
+            fName:value,
+            lName:prev,
+            email:prev.email
+          };
+        }if(name === "lName") {
+          return{
+            fName:prev.fName,
+            lName:value,
+            email:prev.email
+          };}
+         else if (name === "email") {
+          return {
+            fName:prev.fName,
+            lName:prev,
+            email:value.email};}
+                 ;})
+  }
   return (
     <div className="container">
-      <h1>
-        Hello {contact.fName} {contact.lName}
+      <h1>Hello 
+        {contact.fName}{contact.lName}
       </h1>
       <p>{contact.email}</p>
       <form>
-        <input name="fName" placeholder="First Name" />
-        <input name="lName" placeholder="Last Name" />
-        <input name="email" placeholder="Email" />
+      <input name="fName" 
+      value={contact.fName}
+      onChange={HandleChange}placeholder="First Name" />
+      <input name="lName" 
+      value={contact.lName}
+      onChange={HandleChange}placeholder="Last Name" />
+      <input name="email" 
+      value={contact.email}
+      onChange={HandleChange}placeholder="Email" />
         <button>Submit</button>
       </form>
     </div>
@@ -24,37 +54,6 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
