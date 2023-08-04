@@ -3,26 +3,39 @@ import React, { useState } from "react";
 
 function App() {
 
-  const [fname,SetNname] =useState("");
-  const [lname,SetLname] =useState("");
+  const [fullname,SetFullname] =useState({
+    fName:"",
+    lName:"",
+  });
 
   function handlechange(e){
-    SetNname(e.target.value)
+   const newvalue = e.target.value;
+   const inputName = e.target.name;
+   
+   SetFullname((pervValue) => {
+    if (inputName === "fName"){
+      return {
+        fName:newvalue,
+        lName:pervValue.lName
+      };
+    }else if(inputName === "lName"){
+      return{
+        fName:pervValue.fName,
+        lName:newvalue
+      }
+    }
+   })
   }
-  function handl(e){
-    SetLname(e.target.value)
-  }
-  
  
   return (
     <div className="container">
-      <h1>Hello {fname}{lname}</h1>
+      <h1>Hello {fullname.fName}{fullname.lName}</h1>
       <form>
         <input name="fName" onChange={handlechange} placeholder="First Name"
         // for sure the only thing will change in our varable
-         value={fname}   />
-        <input name="lName" onChange={handl} placeholder="Last Name" 
-        value={lname}
+         value={fullname.fName}   />
+        <input name="lName" onChange={handlechange} placeholder="Last Name" 
+        value={fullname.lName}
         />
         <button>Submit</button>
       </form>
