@@ -1,37 +1,51 @@
 import React, { useState } from "react";
-
+import ToDoItem from "ToDoItem";
 
 function App() {
+  const [inputText, setInputText] = useState("");
+  const [items, setItems] = useState([]);
 
-  const [inputText,SetinputText] =useState("");
-  const [items,SetItems] = useState([])
-  function HandleChange(event){
-   const newvalue =event.target.value;
-   SetinputText(newvalue);
+  function handleChange(event) {
+    const newValue = event.target.value;
+    setInputText(newValue);
   }
-  function AddItem(){
-    SetItems((prevItems) => {
-     return [...prevItems,inputText]
+
+  function addItem() {
+    setItems(prevItems => {
+      return [...prevItems, inputText];
     });
-    SetinputText("")
+    setInputText("");
   }
- 
+
+  function deleteItem(id) {
+    setItems(prevItems => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div className="container">
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input type="text" value={inputText} 
-        onChange={HandleChange} />
-        <button
-        onClick={AddItem}>
+        <input onChange={handleChange} type="text" value={inputText} />
+        <button onClick={addItem}>
           <span>Add</span>
         </button>
       </div>
       <div>
         <ul>
-          {items.map((to_do_item) => <li>{to_do_item}</li>)}
+          {items.map((todoItem, index) => (
+            <ToDoItem
+              key={index}
+              id={index}
+              text={todoItem}
+              onChecked={deleteItem}
+            />
+          ))}
         </ul>
       </div>
     </div>
